@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class StackUser {
     public static void main(String[] args) {
-        Stack<String> myStack = new Stack<>();
+        FundiesStack<String> myStack = new FundiesStack<>();
         myStack.push("homework");
         System.out.println(myStack.peek()); // homework
         myStack.push("email");

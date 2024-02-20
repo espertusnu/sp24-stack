@@ -1,6 +1,10 @@
+import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.List;
 
 public class FundiesStack<T> {
+    private List<T> values = new ArrayList<>();
+
     /**
      * Tests if this stack is empty.
      *
@@ -8,7 +12,7 @@ public class FundiesStack<T> {
      * false otherwise
      */
     public boolean empty() {
-        return false;
+        return values.isEmpty();
     }
 
     /**
@@ -17,6 +21,7 @@ public class FundiesStack<T> {
      * @param item the item to be pushed onto this stack
      */
     public void push(T item) {
+        values.add(item);
     }
 
     /**
@@ -26,7 +31,10 @@ public class FundiesStack<T> {
      * @return the item at the top of this stack
      */
     public T peek() {
-        return null;
+        if (empty()) {
+            throw new EmptyStackException();
+        }
+        return values.getLast();
     }
 
     /**
@@ -36,6 +44,8 @@ public class FundiesStack<T> {
      * @throws EmptyStackException if this stack is empty
      */
     public T pop() {
-        return null;
+        T result = peek();
+        values.removeLast();
+        return result;
     }
 }
